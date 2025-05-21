@@ -1,10 +1,11 @@
 import streamlit as st
-import pickle
 import numpy as np
+from catboost import CatBoostClassifier
 
 def load_model():
-    with open("catboost_model.cbm", "rb") as f:
-        return pickle.load(f)
+    model = CatBoostClassifier()
+    model.load_model("catboost_model.cbm")  # Make sure this file is in the same directory
+    return model
 
 def app():
     st.title("💧 Water Potability Prediction Model")
@@ -26,3 +27,4 @@ def app():
             st.success("✅ The water is **potable**.")
         else:
             st.error("❌ The water is **not potable**.")
+
