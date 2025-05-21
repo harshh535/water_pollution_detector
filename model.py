@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 def load_model():
-    with open("catboost_model.pkl", "rb") as f:
+    with open("catboost_model.cbm", "rb") as f:
         return pickle.load(f)
 
 def app():
